@@ -1,0 +1,10 @@
+change-document-title
+create-simple-pdf-file
+unpack-and-decrypt-pdf-file
+merge-pdf-files
+*.pdf
+*.ps
+*.prof
+*.hp
+*.aux
+.build/

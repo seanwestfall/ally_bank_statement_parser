@@ -1,0 +1,121 @@
+Test suite test: RUNNING...
+
+XRef
+  isTable
+    should return True when the stream starts from "xref\n" string
+    should return False when the stream doesn't start from "xref\n"
+    should consume "xref\n" prefix
+  readXRef
+    should support xref table
+    should support xref stream
+    should throw exception if xref not found
+  lastXRef
+    should find the latest xref
+    should throw Corrupted when xref not found
+  trailer
+    should return the dictionary for xref stream
+    should parse trailer after xref table
+    should handle multisection table
+    should throw Corrupted exception if can't parse
+  prevXRef
+    should read xref located at offset from Prev entry in current trailer
+    should return Nothing for the last xref
+    should throw Corrupted when Prev is not an int
+  lookupTableEntry
+    should look for the entry in subsections
+    should return free entry
+    should return Nothing when not found
+  lookupStreamEntry
+    should handle free objects
+    should handle used objects
+    should handle compressed objects
+    should return Nothing when object to found
+    should handle multiple sections
+Stream
+  readStream
+    should throw ParseException when indirect object is not a stream
+Parsers.Object
+  parseString
+    should unescape 3-digit character
+    should unescape 2-digit character
+    should unescape 1-digit character
+    should accept nested parens
+    should unescape special chars
+  parseHexString
+    should parse hex string
+  parseBool
+    should parse 'true' as True
+    should parse 'false' as False
+  parseName
+    should parse a name
+  parseNumber
+    should parse int
+    should parse float
+    should parse float without leading 0.
+  parseArray
+    should parse array
+  parseDict
+    should parse a dictionary
+  parseRef
+    should parse a reference
+Object.Builder
+  buildBool
+    should build 'true' for True
+    should build 'false' for False
+  buildString
+    should produce literal string when all chars are printable
+    should produce hex string when there are not printable chars
+    should escape special chars
+  buildName
+    should build a name
+  buildNumber
+    should build int
+    should build float
+  buildArray
+    should build an array
+    should build empty array
+  buildDict
+    should build a dictionary
+  buildRef
+    should build a ref
+  buildStream
+    should build a stream
+Object.Util
+  boolValue
+    should convert boolean value to Bool
+    should return Nothing for other values
+  stringValue
+    should convert string value to ByteString
+    should return Nothing for other values
+  intValue
+    should convert int value to Int
+    should not convert float value
+    should not convert any other value
+  realValue
+    should convert int value to Float
+    should convert float value to Float
+    should not convert any other value
+  arrayValue
+    should convert array value to Array
+    should return Nothing for any other value
+  dictValue
+    should convert dict value to Dict
+    should return Nothing for any other value
+  nameValue
+    should convert name value to Name
+    should return Nothing for any other value
+  refValue
+    should convert ref value to Ref
+    should return Nothing for any other value
+  streamValue
+    should convert stream value to Stream
+    should return Nothing for any other value
+Name
+  make
+    should wrap bytestring to name
+    should not allow 0 byte inside a name
+
+Finished in 0.1585 seconds
+74 examples, 0 failures
+Test suite test: PASS
+Test suite logged to: dist/test/pdf-toolbox-core-0.1.0-test.log

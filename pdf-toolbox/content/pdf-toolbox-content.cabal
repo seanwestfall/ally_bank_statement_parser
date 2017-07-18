@@ -1,0 +1,63 @@
+name:                pdf-toolbox-content
+version:             0.1.0
+synopsis:            A collection of tools for processing PDF files
+license:             BSD3
+license-file:        LICENSE
+author:              Yuras Shumovich
+maintainer:          Yuras Shumovich <shumovichy@gmail.com>
+copyright:           Copyright (c) Yuras Shumovich 2013-2016
+category:            PDF
+build-type:          Simple
+cabal-version:       >=1.8
+homepage:            https://github.com/Yuras/pdf-toolbox
+extra-source-files:  changelog.md
+description:
+  Tools for processing PDF content streams
+
+source-repository head
+  type:                git
+  location:            git://github.com/Yuras/pdf-toolbox.git
+
+library
+  hs-source-dirs:      lib
+                       compat
+  exposed-modules:
+                       Pdf.Content
+                       Pdf.Content.Parser
+                       Pdf.Content.Ops
+                       Pdf.Content.Processor
+                       Pdf.Content.Transform
+                       Pdf.Content.UnicodeCMap
+                       Pdf.Content.FontInfo
+                       Pdf.Content.GlyphList
+                       Pdf.Content.TexGlyphList
+                       Pdf.Content.Encoding.WinAnsi
+                       Pdf.Content.Encoding.MacRoman
+  other-modules:       Prelude
+                       Data.Either
+  build-depends:       base >= 4.5 && < 5,
+                       containers,
+                       attoparsec >= 0.10,
+                       bytestring,
+                       base16-bytestring,
+                       text,
+                       scientific,
+                       vector,
+                       io-streams,
+                       pdf-toolbox-core ==0.1.0.*
+
+test-suite test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+                       compat
+  main-is:             test.hs
+  other-modules:       Test.UnicodeCMap
+                       Test.Parser
+  build-depends:       base,
+                       containers,
+                       bytestring,
+                       attoparsec,
+                       io-streams,
+                       pdf-toolbox-content,
+                       pdf-toolbox-core,
+                       hspec

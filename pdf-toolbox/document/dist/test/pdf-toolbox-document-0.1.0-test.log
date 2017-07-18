@@ -1,0 +1,9 @@
+Test suite test: RUNNING...
+
+simple.pdf
+  should have title
+
+Finished in 0.3486 seconds
+1 example, 0 failures
+Test suite test: PASS
+Test suite logged to: dist/test/pdf-toolbox-document-0.1.0-test.log

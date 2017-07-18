@@ -1,0 +1,35 @@
+Test suite test: RUNNING...
+
+UnicodeCMap
+  parseUnicodeCMap
+    should parse trivial cmap
+    should parse codespace ranges
+    should parse chars
+    should parse multiple chars
+    should parse ranges
+    should parse multiple ranges
+    should parse array ranges into char map
+    should allow spaces in hex numbers
+  unicodeCMapDecodeGlyph
+    should take glyph from char map if possible
+    should be able to decode the first glyph from a range
+    should be able to decode the last glyph from a range
+    should be able to decode a glyph from a middle of a range
+    should not decode a glyph before a range
+    should not decode a glyph after a range
+Parser
+  parseContent
+    should parse an object
+    should parse an operator
+    should return Nothing when input is empty
+    should ignore comments at the beginning
+    should ignore multiple lines of comments at the beginning
+  readNextOperator
+    should return Nothing when there is no input
+    should collect all objects until an operator
+    should throw when there is no operator after arguments
+
+Finished in 0.0855 seconds
+22 examples, 0 failures
+Test suite test: PASS
+Test suite logged to: dist/test/pdf-toolbox-content-0.1.0-test.log
