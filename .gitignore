@@ -1,1 +1,4 @@
 /bankstatements
+*.o
+*.hi
+main
