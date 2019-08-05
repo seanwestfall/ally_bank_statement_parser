@@ -1,11 +1,13 @@
-module Main (main) where
-{- cabal
+#!/usr/bin/env cabal
+{- cabal:
 
 build-depends: base, wai-app-static, warp
+default-language: Haskell2010
 
 -}
+module Main (main) where
 
-import Network.Wai.Application.Static (staticApp, defaultWebAppSettings)
+import Network.Wai.Application.Static (staticApp, defaultWebAppSettings, defaultFileServerSettings, ssIndices)
 import qualified Network.Wai.Handler.Warp as Warp
 
 main :: IO ()
@@ -14,5 +16,5 @@ main = do
   Warp.run 8080 app
 
   where
-  app - staticApp (defaultWebAppSettings ".")
+  app = staticApp (defaultFileServerSettings ".")
 
